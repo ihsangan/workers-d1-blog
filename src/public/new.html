@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Create new post</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{font-family:sans-serif}@media(prefers-color-scheme:dark){body{background:#222;color:#fff}}
+  </style>
+</head>
+<body>
+  <h2>Create new post</h2>
+  <form method="POST" enctype="application/x-www-form-urlencoded" action="create">
+    <label for="title">Title:</label><br/>
+    <input id="title" type="text" name="title" required><br/>
+    <label for="url">Custom URL:</label><br/>
+    <input id="url" type="text" name="url"><br/>
+    <label for="content">Content:</label><br/>
+    <textarea id="content" name="content" rows="20" cols="49" required></textarea><br/>
+    <button type="submit">create</button><br/>
+  </form>
+</body>
+</html>
