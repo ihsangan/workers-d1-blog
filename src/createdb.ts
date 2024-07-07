@@ -6,8 +6,8 @@ export default async function createDB(request: Request, env: Env): Promise<Resp
   const cURL = (fData.get('url') as string) || title.toLowerCase().replace(/\s+/g, '-');
   const content = fData.get('content') as string;
   const time = Date.now();
-  const insertQuery = 'INSERT INTO blog_posts (title, url, time, content) VALUES (?, ?, ?, ?)';
-  await env.DB.prepare(insertQuery).bind(title, cURL, time, content).run();
+  const query = 'INSERT INTO blog_posts (title, url, time, content) VALUES (?, ?, ?, ?)';
+  await env.DB.prepare(query).bind(title, cURL, time, content).run();
   const html = `<!doctype html>
 <html>
 <head>
