@@ -4,7 +4,7 @@ import createDB from './createdb';
 import getDB from './readdb';
 import home from './homepage';
 import sitemap from './sitemap';
-import editDB from './edit';
+import editDB from './editdb';
 import html404 from './public/404.html';
 const robots = `User-agent: *
 Allow: /`;
@@ -20,14 +20,12 @@ export interface Env {
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const uriPath = new URL(request.url).pathname;
-
-    if (uriPath === '/new' || uriPath === '/create') {
+    if (uriPath === '/new' || uriPath === '/create' || uriPath.startsWith('/edit')) {
       const authResponse = basicAuth(request, env);
       if (authResponse) {
         return authResponse;
       }
     }
-
     if (uriPath === '/new') {
       return new Response(htmlCreate, {
         headers: {
