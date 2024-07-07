@@ -1,0 +1,14 @@
+name = "workers-d1-blog"
+workers_dev = true
+compatibility_date = "2024-01-01"
+main = "./src/index.ts"
+[[d1_databases]]
+binding = "DB"
+database_name = "" # D1 database name
+database_id = "" # Database ID
+[placement]
+mode = "smart"
+[vars]
+BLOGNAME = "My Blog" # Change all value with yours
+DESCRIPTION = "My place to sharing"
+BASEURI = "https://blog.example.com/" 
