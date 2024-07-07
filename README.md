@@ -9,16 +9,4 @@ CREATE TABLE IF NOT EXISTS blog_posts (
     time INTEGER,
     content TEXT
 );
-INSERT INTO blog_posts (
-    title,
-    url,
-    time,
-    content
-)
-VALUES (
-    'Hello World',
-    'hello-world',
-    0,
-    'Hello world!'
-);
 ```

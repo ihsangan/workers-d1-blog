@@ -9,8 +9,12 @@ export default async function home(request: Request, env: Env): Promise<Response
 <head>
   <title>Homepage | ${env.BLOGNAME}</title>
   <meta name="description" property="og: description" content="${env.DESCRIPTION}">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta itemprop="dateModified" content="${new Date(results[0].time).toISOString()}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">`;
+  if (results.length > 0) {
+    htmlPage += `
+  <meta itemprop="dateModified" content="${new Date(results[0].time).toISOString()}">`;
+  }
+  htmlPage += `
   <style>
   body{font-family:sans-serif}@media(prefers-color-scheme:dark){body{background:#222;color:#fff}}
   </style>
@@ -21,13 +25,15 @@ export default async function home(request: Request, env: Env): Promise<Response
   ${env.DESCRIPTION}
   </div>
   <hr>`;
-  results.forEach(result => {
-    const cvTime = convertTime(request, result.time);
-    htmlPage += `
+  if (results.length > 0) {
+    results.forEach(result => {
+      const cvTime = convertTime(request, result.time);
+      htmlPage += `
   <h2><a href="/post/${result.url}">${result.title}</a></h2>
   <div style="font-size:14px;opacity:0.6">${cvTime}</div>
   <hr>`;
-  });
+    });
+  }
   htmlPage += `
 </body>
 </html>`;
