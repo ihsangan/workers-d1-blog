@@ -40,9 +40,9 @@ export function basicAuth(request: Request, env: Env): Response | null {
 }
 
 export function MDrewrite(str: string): string {
-  const markdownRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-  const urlOnlyRegex = /\[([^\]]+)\]/g;
-  str = str.replace(markdownRegex, (match, note, url) => {
+  let markdownRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let urlOnlyRegex = /\[([^\]]+)\]/g;
+  str = str.replace(markdownRegex, (match, url, note) => {
     return `<a href="${url}">${note.trim()}</a>`;
   });
   str = str.replace(urlOnlyRegex, (match, url) => {
