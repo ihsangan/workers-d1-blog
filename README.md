@@ -22,3 +22,26 @@ Copy db name and ID and adjust to `wrangler.toml`
 Go to repository setting > secrets and variables > actions
 
 Create repository secrets with name `USERNAME` & `PASSWORD`
+## Usage
+
+### Endpoints
+
+- **Home (`/`)**
+  - Displays the list of blog posts.
+
+- **Create New Post (`/new`)**
+  - Displays the form to create a new blog post. Requires basic authentication.
+
+- **Create Post (`/create`)**
+  - Handles form submission to create a new post. Requires basic authentication.
+
+- **Read Post (`/post/:article`)**
+  - Displays a specific blog post.
+
+- **Edit Post (`/edit/:article`)**
+  - Displays the form to edit a blog post. Handles form submission to update or delete the post. Requires basic authentication.
+## Troubleshooting
+
+![chrome_screenshot_7 Jul 2024 17 19 30](https://github.com/ihsangan/workers-d1-blog/assets/63774886/dae5be14-07a4-491a-bbd7-7145cacdda4e)
+
+If you get error like this just simply Re-run job
